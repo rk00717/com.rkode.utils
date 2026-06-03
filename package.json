@@ -1,0 +1,16 @@
+{
+  "name": "com.rkode.utils",
+  "displayName": "RKode Utility",
+  "version": "0.1.0-alpha",
+  "unity": "2021.3",
+  "description": "Helper utility which eases development process...",
+  "author": {
+    "name": "RKode Studio",
+    "url": "https://rkodestudio.com"
+  },
+  "type": "tool",
+  "hideInEditor": false,
+  "dependencies": {
+    "com.unity.nuget.newtonsoft-json": "3.0.2"
+  }
+}
