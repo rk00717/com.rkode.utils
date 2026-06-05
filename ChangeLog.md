@@ -6,6 +6,14 @@ Versioning follows [SemVer](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [0.3.0] — 2026-06-05
+
+### Changed
+- Added Conditional Log inside Logger
+- Exposed Logger.IsLoggingEnabled to be able to control Logger from outside of Logger.
+
+---
+
 ## [0.2.0] — 2026-06-05
 
 ### Changed
