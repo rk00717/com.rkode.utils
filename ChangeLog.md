@@ -6,6 +6,15 @@ Versioning follows [SemVer](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [0.2.0] — 2026-06-05
+
+### Changed
+- `QuitApplication`: extracted quit logic into public static `Execute()` method
+- Instance method `Quit()` now delegates to `Execute()` — Inspector wiring unaffected
+- Other classes can now call `QuitApplication.Execute()` without a MonoBehaviour reference
+
+---
+
 ## [0.1.0-alpha] — 2026-06-03
 
 ### Added

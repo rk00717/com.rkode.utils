@@ -1,7 +1,7 @@
 {
   "name": "com.rkode.utils",
   "displayName": "RKode Utility",
-  "version": "0.1.0-alpha",
+  "version": "0.2.0",
   "unity": "2021.3",
   "description": "Helper utility which eases development process...",
   "author": {
@@ -12,5 +12,8 @@
   "hideInEditor": false,
   "dependencies": {
     "com.unity.nuget.newtonsoft-json": "3.0.2"
-  }
+  },
+  "documentationUrl": "https://github.com/rk00717/com.rkode.utils#readme",
+  "changelogUrl": "https://github.com/rk00717/com.rkode.utils/blob/main/ChangeLog.md",
+  "licensesUrl": "https://github.com/rk00717/com.rkode.utils/blob/main/LICENSE"
 }
