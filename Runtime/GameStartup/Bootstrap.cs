@@ -31,11 +31,8 @@ public class Bootstrap {
     internal static void OnPlayModeStateChanged(PlayModeStateChange state) {
         if (state == PlayModeStateChange.ExitingEditMode) {
             var config = GetConfig();
-            if (config.startupScene == null)
-                Debug.LogWarning($"[RKode.Startup] No startup scene assigned. Using default '{config.startupSceneName}'. Assign it in Project Settings > RKode > Startup.");
-            
-            if (config.loadingScene == null)
-                Debug.LogWarning($"[RKode.Startup] No loading scene assigned. Using default '{config.loadingSceneName}'. Assign it in Project Settings > RKode > Startup.");
+            WarnIfNotInBuildSettings(config.startupSceneName);
+            WarnIfNotInBuildSettings(config.loadingSceneName);
 
             if (_isRedirecting) 
                 return;
@@ -100,7 +97,7 @@ public class Bootstrap {
                 return scene.path;
         }
 
-        var guids = AssetDatabase.FindAssets($"{sceneName} t:Scene");
+        var guids = AssetDatabase.FindAssets($"t:Scene {sceneName}");
         foreach (var guid in guids) {
             var path = AssetDatabase.GUIDToAssetPath(guid);
             if (System.IO.Path.GetFileNameWithoutExtension(path) == sceneName)
@@ -108,6 +105,15 @@ public class Bootstrap {
         }
 
         return null;
+    }
+
+    private static void WarnIfNotInBuildSettings(string sceneName) {
+        foreach (var s in EditorBuildSettings.scenes)
+            if (System.IO.Path.GetFileNameWithoutExtension(s.path) == sceneName) return;
+    
+        Debug.LogWarning(
+            $"[RKode.Startup] '{sceneName}' is not in Build Settings. " +
+            "Editor redirect works but builds will fail. Add it via File > Build Settings.");
     }
 
 #endif
@@ -121,8 +127,8 @@ public class Bootstrap {
             return;
         }
 
-        if (SceneManager.GetActiveScene().name != config.startupScene)
-            SceneManager.LoadSceneAsync(config.startupScene);
+        if (SceneManager.GetActiveScene().name != config.startupSceneName)
+            SceneManager.LoadSceneAsync(config.startupSceneName);
     }
 #endif
 

@@ -9,7 +9,13 @@ internal class StartupSettingsSection : ISettingsSection {
 
     public void Draw(SerializedObject so) {
         var canLoadBootstrap = EditorPrefs.GetBool(StartupConstants.CAN_LOAD_KEY, false);
-        Bootstrap.SetEnabled(EditorGUILayout.Toggle("Enable Startup Redirect", canLoadBootstrap));
+
+        EditorGUI.BeginChangeCheck();
+        var newValue = EditorGUILayout.Toggle("Enable Startup Redirect", canLoadBootstrap);
+		if(EditorGUI.EndChangeCheck()) {
+        	Bootstrap.SetEnabled(newValue);
+		}
+
         EditorGUILayout.PropertyField(so.FindProperty("startupScene"), new GUIContent("Startup Scene"));
     }
 }

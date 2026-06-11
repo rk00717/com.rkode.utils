@@ -6,6 +6,22 @@ Versioning follows [SemVer](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [0.4.0] — 2026-06-11
+
+### Added
+- `ProjectScopedKey` — scopes `EditorPrefs` keys per project using `PlayerSettings.productGUID`. Prevents settings leaking across projects on the same machine.
+
+### Changed
+- `StartupConstants` keys are now project-scoped via `ProjectScopedKey`
+- `StartupSettingsSection` toggle no longer fires every frame while settings window is open
+- `Bootstrap` scene warnings now correctly check Build Settings instead of null references
+- `ProjectConfig` no longer marks assets dirty on every script reload
+
+### Fixed
+- `Bootstrap` runtime build path was passing a `SceneAsset` reference instead of a scene name string
+
+---
+
 ## [0.3.0] — 2026-06-05
 
 ### Changed

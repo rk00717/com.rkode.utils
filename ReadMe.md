@@ -1,14 +1,14 @@
 <div align="center">
 
 # RKode Utility
-### `com.rkode.utils` · v0.3.0 · Unity 2021.3+
+### `com.rkode.utils` · v0.4.0 · Unity 2021.3+
 
 **The foundation of the RKode ecosystem.**  
 Runtime and editor utilities built to be copied zero times — import once, use everywhere.
 
 [![Unity](https://img.shields.io/badge/Unity-2021.3+-0a0c08?style=flat-square&logo=unity&logoColor=c9933a)](https://unity.com)
 [![License](https://img.shields.io/badge/License-MIT-0a0c08?style=flat-square&logoColor=c9933a)](LICENSE)
-[![Version](https://img.shields.io/badge/Version-0.3.0-0a0c08?style=flat-square&logoColor=c9933a)]()
+[![Version](https://img.shields.io/badge/Version-0.4.0-0a0c08?style=flat-square&logoColor=c9933a)]()
 [![openupm](https://img.shields.io/npm/v/com.rkode.utils?label=openupm&registry_uri=https://package.openupm.com)](https://openupm.com/packages/com.rkode.utils/)
 
 </div>
@@ -39,6 +39,7 @@ Runtime and editor utilities built to be copied zero times — import once, use 
 | `QuitApplication` | Platform-safe application quit. |
 | `PlayerNameUtils` | Shared player name utilities. |
 | `ProjectConfig` | ScriptableObject for project-wide config (loading scene name, etc). |
+| `ProjectScopedKey` | Scopes `EditorPrefs` keys per project. Use `ProjectScopedKey.Get("MyKey")` to prevent settings leaking across projects on the same machine. |
 
 ### Editor
 

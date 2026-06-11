@@ -1,4 +1,5 @@
 using UnityEngine;
+using RKode.Startup;
 
 #if UNITY_EDITOR
 using UnityEditor;
@@ -19,20 +20,24 @@ public class ProjectConfig : ScriptableObject {
     private void OnValidate() {
         startupSceneName = startupScene != null ? startupScene.name : STARTUP_SCENE;
         loadingSceneName = loadingScene != null ? loadingScene.name : LOADING_SCENE;
-
-        EditorUtility.SetDirty(this);
     }
 
     [UnityEditor.Callbacks.DidReloadScripts]
     private static void OnScriptsReloaded() {
-        var config = Resources.Load<ProjectConfig>("RKode/ProjectConfig");
+        var config = Resources.Load<ProjectConfig>(StartupConstants.CONFIG_PATH);
         if (config == null) 
             return;
 
-        config.startupSceneName = config.startupScene != null ? config.startupScene.name : STARTUP_SCENE;
-        config.loadingSceneName = config.loadingScene != null ? config.loadingScene.name : LOADING_SCENE;
+        string startUpSceneName = config.startupScene != null ? config.startupScene.name : STARTUP_SCENE;
+        string loadingSceneName = config.loadingScene  != null ? config.loadingScene.name  : LOADING_SCENE;
+        bool changed = config.startupSceneName != startUpSceneName || config.loadingSceneName != loadingSceneName;
+        config.startupSceneName = startUpSceneName;
+        config.loadingSceneName  = loadingSceneName;
 
-        EditorUtility.SetDirty(config);
+        if (changed) { 
+            EditorUtility.SetDirty(config);
+            AssetDatabase.SaveAssetIfDirty(config); 
+        }
     }
 #endif
 }
