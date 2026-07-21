@@ -6,6 +6,13 @@ Versioning follows [SemVer](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [0.4.1] — 2026-07-21
+
+### Fixed
+- Added null check preventing `NullReferenceException` in `Logger`.
+
+---
+
 ## [0.4.0] — 2026-06-11
 
 ### Added

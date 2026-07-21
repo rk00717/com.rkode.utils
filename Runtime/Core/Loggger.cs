@@ -13,7 +13,7 @@ public static class Logger {
 #if UNITY_EDITOR
 		if(!IsLoggingEnabled || !condition) return;
 
-        var name = $"{myObj.GetType()} | {(myObj ? myObj.name : "NullObject")}".Color("lightblue");
+        var name = $"{myObj?.GetType()} | {(myObj ? myObj.name : "NullObject")}".Color("lightblue");
         LogFunction($"{prefix} [{name}]: {System.String.Join("; ", msg)}\n ", myObj);
 #endif
     }

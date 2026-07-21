@@ -1,7 +1,7 @@
 <div align="center">
 
 # RKode Utility
-### `com.rkode.utils` · v0.4.0 · Unity 2021.3+
+### `com.rkode.utils` · v0.4.1 · Unity 2021.3+
 
 **The foundation of the RKode ecosystem.**  
 Runtime and editor utilities built to be copied zero times — import once, use everywhere.
