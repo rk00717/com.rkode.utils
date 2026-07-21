@@ -6,6 +6,13 @@ Versioning follows [SemVer](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [0.4.3] — 2026-07-21
+
+### Change
+- Removed orphaned meta file.
+
+---
+
 ## [0.4.2] — 2026-07-21
 
 ### Fixed
