@@ -6,9 +6,20 @@ Versioning follows [SemVer](https://semver.org/spec/v2.0.0.html).
 
 ---
 
+## [0.5.0] — 2026-07-21
+
+### Added
+- `Singleton` — add `ClearInstance` function.
+- `SingletonConfig` - an attribute by which now user can create instance automatically if needed instead of having it manually.
+
+### Fixed
+- Fixed `NullReferenceException` issue from `Singleton` class.
+
+---
+
 ## [0.4.3] — 2026-07-21
 
-### Change
+### Changed
 - Removed orphaned meta file.
 
 ---
